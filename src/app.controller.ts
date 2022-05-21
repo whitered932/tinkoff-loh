@@ -1,4 +1,4 @@
-import { Body, Controller, Logger, Post } from '@nestjs/common';
+import { Body, Controller, Get, Logger, Post } from '@nestjs/common';
 import { LogDto } from './dto/LogDto';
 
 @Controller()
@@ -8,5 +8,10 @@ export class AppController {
   @Post()
   async logError(@Body() logDto: LogDto): Promise<void> {
     this.logger.log(logDto.log);
+  }
+
+  @Get()
+  async hello() {
+    return 'Всем Татьянам привет!';
   }
 }
